@@ -45,52 +45,11 @@ class DownloadWorker(Thread):
 
     def run(self):
         prompt_23 = '''
-        You are reading a comment that a member of the public has written in response to a proposed rule change coming from the Office of Head Start.  
+        You are reading a comment that a member of the public has written in response to a proposed rule change.  
         - Read the comment delineated by triple back-ticks
         - Break the comment into paragraph segments (segments must be at least 45 words long), and do the following tasks for each segment:
         - For each segment, determine if any of the below topics within this list of topics are being discussed within the segment and return the topic. The topic is listed between double quotes, and key words related to those topics are shown in parenthesis after the topic in double quotes. If the topic being discussed in the segment isn't within this list, return a new topic. If there are multiple topics discussed in the segment, return a list of the topics that are discussed.
-        ["Definition of Head Start and Related Terms",
-        "Wages",
-        "Pay Parity" (comparable industries, public school),
-        "Pay Scale" (ladder, salary schedule),
-        "Salary Floor" (minimum pay, living wage),
-        "Staff Benefits" (loan forgiveness),
-        "Leave" (sick, personal, FMLA),
-        "Health Insurance",
-        "Retirement",
-        "FCC",
-        "Furniture",
-        "Breaks",
-        "Teacher Mental Health and Morale",
-        "Workplace Culture and Management",
-        "Student Mental Health and Behavioral Issues" (MH consultant),
-        "Communication with Families" (texting, internet, apps),
-        "Community Assessment",
-        "Housing Adjustment",
-        "Migrant and Seasonal Workers" (agriculture),
-        "Transportation and Barriers to Attendance" (miles),
-        "Children with Disabilities",
-        "Class Sizes and Staff to Child Ratios",
-        "School Year and Day Duration" (weeks, working families),
-        "Lead Exposure",
-        "Family Service Worker Assignments and Caseload",
-        "QRIS",
-        "Pregnancy" (Maternal, Neonatal, Newborn),
-        "Child Abuse, Neglect or Maltreatment" (Standards of Conduct, Child Safety, CAPTA),
-        "Staff Training",
-        "Incident Reporting" (natural disasters),
-        "Facilities Valuation",
-        "Definition of Gross income, Income Calculations",
-        "Definition of the Poverty Line",
-        "Definition of Major Renovations" (Federal Interest),
-        "Increased Costs and Funding That Go Toward Supporting Staff Wages and Benefits",
-        "Reducing Enrollment Slots" (slot reduction),
-        "Suspension and Expulsion",
-        "Staff Credentials" (degree, teaching license),
-        "Staffing Shortages and Retention",
-        "Administrative Burden" (paperwork),
-        "Tribal" (Indian Alaska Native, AIAN),
-        "Rural"]
+        [topic_lst]
     - For each segment return the "tone" of that segment (either "positive", "negative", "mixed" or "neutral").
     - For each segment return the "intent" of that segment (either "suggestion", "concern", "agreement" or a combination of those. If it's a combination,  return all choices in a list of strings)
     - All segments of the comment should be returned with associated topics, intents, and tones.
